@@ -18,12 +18,12 @@
 
 
 def remove_adjacent(nums):
-    list = []
+    result = []
 
     for num in nums:
-        if not(num in list):
-            list.append(num)
-    return list
+        if not(num in result):
+            result.append(num)
+    return result
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -38,7 +38,9 @@ def linear_merge(list1, list2):
             res.append(list1.pop(0))
         else:
             res.append(list2(0))
-    return
+    res.extend(list1)
+    res.extend(list2)
+    return res
 
 
 # Simple provided test() function used in main() to print
