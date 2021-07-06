@@ -18,12 +18,10 @@
 
 
 def remove_adjacent(nums):
-    list = []
-
-    for num in nums:
-        if not(num in list):
-            list.append(num)
-    return list
+    for num, numb in zip(nums, nums[1:]):
+        if num == numb:
+            nums.remove(num)
+    return nums
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -37,8 +35,10 @@ def linear_merge(list1, list2):
         if list1[0] < list2[0]:
             res.append(list1.pop(0))
         else:
-            res.append(list2(0))
-    return
+            res.append(list2.pop(0))
+    res.extend(list1)
+    res.extend(list2)
+    return res
 
 
 # Simple provided test() function used in main() to print
